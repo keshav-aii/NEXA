@@ -1,6 +1,5 @@
-from automation.apps import open_app
+from automation.automation import open_app
 
 
 def run(command):
-
     return open_app(command)

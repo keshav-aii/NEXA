@@ -1,5 +1,5 @@
 from brain.brain import ask_nexa
-from automation.automation import open_app
+from tools.tool_manager import choose_tool
 
 print("===================================")
 print("        NEXA AI Assistant")
@@ -13,14 +13,10 @@ while True:
     if user.lower() == "exit":
         break
 
-    if user.lower().startswith("open "):
+    result = choose_tool(user)
 
-        app_name = user.lower().replace("open ", "")
-
-        result = open_app(app_name)
-
+    if result:
         print("\nNEXA:", result)
-
         continue
 
     reply = ask_nexa(user)
