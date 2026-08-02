@@ -1,5 +1,5 @@
 import webbrowser
-
+from tools.websites import WEBSITES
 
 def open_youtube():
     webbrowser.open("https://www.youtube.com")
@@ -40,3 +40,10 @@ def open_chatgpt():
 def open_linkedin():
     webbrowser.open("https://www.linkedin.com")
     return "Opening LinkedIn..."
+
+def open_website(name):
+    if name in WEBSITES:
+        url = WEBSITES[name]
+        webbrowser.open(url)
+        return f"Opening {name}..."
+    return None
