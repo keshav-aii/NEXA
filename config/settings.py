@@ -1,0 +1,5 @@
+AI_NAME = "NEXA"
+
+MODEL_NAME = "qwen2.5:3b"
+
+VERSION = "0.1.0"
