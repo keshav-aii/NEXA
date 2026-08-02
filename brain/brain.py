@@ -1,5 +1,5 @@
 from ollama import chat
-
+from config.settings import MODEL_NAME
 
 SYSTEM_PROMPT = """
 You are NEXA.
@@ -27,7 +27,7 @@ Keep answers short unless asked for details.
 def ask_nexa(prompt):
 
     response = chat(
-        model="qwen2.5:3b",
+        model=MODEL_NAME,
         messages=[
             {
                 "role": "system",
