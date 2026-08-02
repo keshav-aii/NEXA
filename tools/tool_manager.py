@@ -1,34 +1,15 @@
 from tools.app_tools import run as run_app
 from tools.browser_tools import (
-    open_youtube,
+    open_website,
     search_youtube,
     search_google,
-    open_github,
-    open_gmail,
-    open_chatgpt,
-    open_linkedin,
 )
-
 
 def choose_tool(command):
 
     command = command.lower()
 
-    if command == "open youtube":
-        return open_youtube()
-
-    if command == "open github":
-        return open_github()
-
-    if command == "open gmail":
-        return open_gmail()
-
-    if command == "open chatgpt":
-        return open_chatgpt()
-
-    if command == "open linkedin":
-        return open_linkedin()
-
+ 
     if command.startswith("search youtube for "):
         query = command.replace("search youtube for ", "")
         return search_youtube(query)
@@ -38,7 +19,13 @@ def choose_tool(command):
         return search_google(query)
 
     if command.startswith("open "):
-        app = command.replace("open ", "")
-        return run_app(app)
+        name = command.replace("open ", "")
+
+        result = open_website(name)
+
+        if result:
+            return result
+
+        return run_app(name)
 
     return None
